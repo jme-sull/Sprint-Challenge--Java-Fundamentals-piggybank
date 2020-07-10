@@ -25,6 +25,30 @@ public class CoinController
         List<Coin> myList = new ArrayList<>();
         coinrepo.findAll().iterator().forEachRemaining(myList::add);
 
-        return new ResponseEntity<>(myList, HttpStatus.OK);
+        double total = 0;
+
+        for(Coin c : myList)
+        {
+            total = total + (c.getQuantity() * c.getValue());
+        }
+
+        for(Coin c: myList)
+        {
+            if (c.getQuantity() > 1)
+            {
+                System.out.println(c.getQuantity() + " " + c.getNamepural());
+            }
+
+            if (c.getQuantity() <= 1)
+            {
+                System.out.println(c.getQuantity() + " " + c.getName());
+            }
+
+        }
+
+        System.out.println("The piggy bank holds " + total);
+
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
