@@ -34,12 +34,12 @@ public class CoinController
 
         for(Coin c: myList)
         {
-            if (c.getQuantity() > 1)
+            if (c.getQuantity() > 1 || c.getQuantity() == 0)
             {
                 System.out.println(c.getQuantity() + " " + c.getNamepural());
             }
 
-            if (c.getQuantity() <= 1)
+            if (c.getQuantity() == 1)
             {
                 System.out.println(c.getQuantity() + " " + c.getName());
             }
